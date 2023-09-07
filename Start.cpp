@@ -1,7 +1,8 @@
-#include <bits/stdc++.h>
 
-using namespace std;
+#include "User.cpp"
+
 
 int main(){
-    cout << "Hello World\n";
+    User U1;
+    cout << "Hello World" << endl;
 }
