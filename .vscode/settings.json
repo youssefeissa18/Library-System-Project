@@ -5,6 +5,8 @@
         "limits": "cpp",
         "memory": "cpp",
         "sstream": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp"
     }
 }

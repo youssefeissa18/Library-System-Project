@@ -39,7 +39,7 @@ User::User(const User& Other){
 
 // Opertor Overloading To Compare Between Two Object
 bool User::operator==(const User& Other){
-    return (this->ID == Other.ID);
+    return (this->ID == Other.ID && this->Email == Other.Email && this->Age == Other.Age && this->Name == Other.Name);
 }
 
 
@@ -77,7 +77,9 @@ int User::getId() const{
 
 // Opertor Overloading To cout Object
 ostream &operator<<(ostream& output, const User& user) {
-    output << "User: " << user.Name << " (ID: " << user.ID << ")";
+    cout << "======================== ID : " << user.ID << " Info ========================" << endl;
+    cout << "\t\tName" << "\t\tAge" << "\t\tID" << endl;
+    output << "\t\t" << user.Name << "\t\t" << user.Age << "\t\t" << user.ID << endl;
     return output;
 }
 
@@ -85,7 +87,16 @@ ostream &operator<<(ostream& output, const User& user) {
 istream &operator>>(istream& input, User& user){
     cout << "Enter Your Name" << endl;
     input >> user.Name;
-    cout << "Enter Your ID" << endl;
-    input >> user.ID;
+    cout << "Enter Your Age" << endl;
+    input >> user.Age;
+    cout << "Enter Your Email" << endl;
+    input >> user.Email;
+    cout << "Enter Your Password" << endl;
+    input >> user.Password;
     return input;
+}
+
+void User::Display(){
+    cout << "\t\tName" << "\t\tAge" << "\t\tID" << endl;
+    cout << "\t\t" << Name << "\t\t" << Age << "\t\t" << ID << endl;
 }
