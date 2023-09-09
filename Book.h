@@ -12,6 +12,8 @@ private:
     string Category;
     double averageRating;
     User Author;
+    int numRate;
+    double sumRates;
     public:
     static int count;
     Book(){};

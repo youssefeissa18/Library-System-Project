@@ -6,6 +6,8 @@
         Isbn = "";
         Category = "";
         averageRating = 0.0;
+        numRate = 0;
+        sumRates = 0.0;
         count++;
         ID = count;
         User Author;
@@ -18,6 +20,8 @@
         ID = count;
         averageRating = 0.0;
         User Author;
+        numRate = 0;
+        sumRates = 0.0;
     }
     Book::Book(const Book& book){
         Title = book.Title;
@@ -26,6 +30,8 @@
         Category = book.Category;
         averageRating = book.averageRating;
         Author = book.Author;
+        numRate = book.numRate;
+        sumRates = book.sumRates;
     }
     void Book::setTitle(string Title){
         this->Title = Title;
@@ -57,18 +63,31 @@
     User Book::getAuthor() const {
         return Author;
     }
-    void Book::rateBook(double averageRating) {
-
+    void Book::rateBook(double Rating) {
+        numRate++;
+        sumRates += Rating;
+        averageRating = sumRates / numRate;
     }
     double Book::getAverageRating () const {
         return averageRating;
     }
     bool Book::operator==(const Book& book) {
-
+        return Title == book.Title && Isbn == book.Isbn && ID == book.ID && Category == book.Category && averageRating == book.averageRating && Author == book.Author;
     }
     ostream &operator<<(ostream & output, const Book & book) {
-
+        cout << "======================== ID : " << book.ID << " Info ========================" << endl;
+        cout << "\tName" << "\tIsbn" << "\tCategory" << "\tID" << "\tAverage Rate" << endl;
+        output << "\t" << book.Title << "\t" << book.Isbn << "\t" << book.Author << "\t" << book.Category << "\t" << book.ID << "\t" << book.averageRating << endl;
+        if (book.Author.getName() != "")
+        {
+            cout << "\tAuthor : "<< book.Author << endl;
+        }
+        return output;
     }
     istream &operator>>( istream & input, Book & book) {
-        
+        cout << "Enter Book Inforamtion" << endl;
+        cout << "Title\t\t" << "Isbn\t\t" << "Category" << endl;
+        input >> book.Title >> book.Isbn >> book.Category;
+        book.averageRating = 0.0;
+        return input;
     }
