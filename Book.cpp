@@ -35,8 +35,8 @@
         sumRates = book.sumRates;
         if (boolAuthor)
         {
-            this->Author = new User;
-            boolAuthor = true;
+            // this->Author = new User;
+            // boolAuthor = true;
             // this->Author = book.Author;
             setAuthor(*book.Author);
         }
@@ -101,3 +101,7 @@
         // book.averageRating = 0.0;
         return input;
     }
+
+Book::~Book(){
+    delete Author;
+}

@@ -15,7 +15,7 @@ private:
     bool boolAuthor;
     int numRate;
     double sumRates;
-    public:
+public:
     static int count;
     Book();
     Book(string , string , string );
@@ -35,6 +35,7 @@ private:
     bool operator==(const Book&);
     friend ostream &operator<<(ostream &, const Book &);
     friend istream &operator>>( istream &, Book &);
+    ~Book();
 };
 
 

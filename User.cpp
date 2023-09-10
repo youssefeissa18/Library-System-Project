@@ -76,7 +76,7 @@ int User::getId() const{
 
 // Opertor Overloading To cout Object
 ostream &operator<<(ostream& output, const User& user) {
-    cout << "\n======================== ID : " << user.ID << " User Info ========================" << endl;
+    cout << "\n========================= ID : " << user.ID << " User Info =========================" << endl;
     cout << "\t\tName" << "\t\tAge" << "\t\tID" << endl;
     output << "\t\t" << user.Name << "\t\t" << user.Age << "\t\t" << user.ID << endl;
     cout << "=============================================" << endl;
