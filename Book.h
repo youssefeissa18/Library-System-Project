@@ -11,12 +11,13 @@ private:
     int ID;
     string Category;
     double averageRating;
-    User Author;
+    User *Author;
+    bool boolAuthor;
     int numRate;
     double sumRates;
     public:
     static int count;
-    Book(){};
+    Book();
     Book(string , string , string );
     Book(const Book& );
     void setTitle(string );

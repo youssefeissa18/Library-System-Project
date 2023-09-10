@@ -1,7 +1,6 @@
     #include "Book.h"
     int Book::count = 0;
     Book::Book(){
-        cout << "The List Is Empty\n";
         Title = "";
         Isbn = "";
         Category = "";
@@ -10,7 +9,8 @@
         sumRates = 0.0;
         count++;
         ID = count;
-        User Author;
+        // User Author;
+        boolAuthor = false;
     }
     Book::Book(string Title, string Isbn, string Category){
         this->Title = Title;
@@ -19,9 +19,10 @@
         count++;
         ID = count;
         averageRating = 0.0;
-        User Author;
+        // User Author;
         numRate = 0;
         sumRates = 0.0;
+        boolAuthor = false;
     }
     Book::Book(const Book& book){
         Title = book.Title;
@@ -29,9 +30,17 @@
         ID = book.ID;
         Category = book.Category;
         averageRating = book.averageRating;
-        Author = book.Author;
+        // Author = book.Author;
         numRate = book.numRate;
         sumRates = book.sumRates;
+        if (boolAuthor)
+        {
+            this->Author = new User;
+            boolAuthor = true;
+            // this->Author = book.Author;
+            setAuthor(*book.Author);
+        }
+        
     }
     void Book::setTitle(string Title){
         this->Title = Title;
@@ -58,10 +67,11 @@
         return Category;
     }
     void Book::setAuthor(const User & Author){
-        this->Author = Author;
+        boolAuthor = true;
+        this->Author = new User(Author);
     }
     User Book::getAuthor() const {
-        return Author;
+        return *Author;
     }
     void Book::rateBook(double Rating) {
         numRate++;
@@ -75,12 +85,12 @@
         return Title == book.Title && Isbn == book.Isbn && ID == book.ID && Category == book.Category && averageRating == book.averageRating && Author == book.Author;
     }
     ostream &operator<<(ostream & output, const Book & book) {
-        cout << "======================== ID : " << book.ID << " Info ========================" << endl;
+        cout << "\n======================== ID : " << book.ID << " Book Info ========================" << endl;
         cout << "\tName" << "\tIsbn" << "\tCategory" << "\tID" << "\tAverage Rate" << endl;
-        output << "\t" << book.Title << "\t" << book.Isbn << "\t" << book.Author << "\t" << book.Category << "\t" << book.ID << "\t" << book.averageRating << endl;
-        if (book.Author.getName() != "")
+        output << "\t" << book.Title << "\t" << book.Isbn << "\t" << book.Category << "\t" << book.ID << "\t" << book.averageRating << endl;
+        if (book.boolAuthor)
         {
-            cout << "\tAuthor : "<< book.Author << endl;
+            cout << "\tAuthor : "<< *(book.Author);
         }
         return output;
     }
@@ -88,6 +98,6 @@
         cout << "Enter Book Inforamtion" << endl;
         cout << "Title\t\t" << "Isbn\t\t" << "Category" << endl;
         input >> book.Title >> book.Isbn >> book.Category;
-        book.averageRating = 0.0;
+        // book.averageRating = 0.0;
         return input;
     }

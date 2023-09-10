@@ -7,7 +7,6 @@ int User::count = 0;
 
 //Empty Constructor to give initial value for Varaible
 User::User(){
-    cout << "The List Is Empty\n";
     Name = "";
     Age = 0;
     Email = "";
@@ -77,9 +76,10 @@ int User::getId() const{
 
 // Opertor Overloading To cout Object
 ostream &operator<<(ostream& output, const User& user) {
-    cout << "======================== ID : " << user.ID << " Info ========================" << endl;
+    cout << "\n======================== ID : " << user.ID << " User Info ========================" << endl;
     cout << "\t\tName" << "\t\tAge" << "\t\tID" << endl;
     output << "\t\t" << user.Name << "\t\t" << user.Age << "\t\t" << user.ID << endl;
+    cout << "=============================================" << endl;
     return output;
 }
 

@@ -1,15 +1,12 @@
 #include "User.cpp"
-#include "Book.h"
+#include "Book.cpp"
 
 int main(){
-    Book B1,B2;
-    B1.rateBook(2);
-    B1.rateBook(3);
-    B2.rateBook(4);
-    cout << B1 << endl << B2 << endl;
-    User U1("Youssef",20,"eissa","45124513");
-    // U1.Display();
-    cin >> U1;
-    cout << U1;
-    cout << "Hello World" << endl;
+    User U1, U2, U3;
+    Book B1;
+    User U4;
+    cin >> U4;
+    cout << "==============================" << endl;
+    B1.setAuthor(U4);
+    cout << B1;
 }
