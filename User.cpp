@@ -97,6 +97,6 @@ istream &operator>>(istream& input, User& user){
 }
 
 void User::Display(){
-    cout << "\t\tName" << "\t\tAge" << "\t\tID" << endl;
+    cout << "\t\tName" << "\t\tAge" << "\t\tID " << endl;
     cout << "\t\t" << Name << "\t\t" << Age << "\t\t" << ID << endl;
 }

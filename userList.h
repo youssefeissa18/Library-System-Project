@@ -17,7 +17,4 @@ public:
     friend ostream &operator<<( ostream& ,const UserList&);
     ~UserList();
 };
-
-
-
 #endif//userList_H_INCLUDED

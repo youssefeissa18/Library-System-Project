@@ -26,7 +26,7 @@ public:
     void setId(int );
     int getId()const;
     void Display ();
-    friend ostream &operator<<(ostream &, const User &);
+    friend ostream &operator<<(ostream &,const User &);
     friend istream &operator>>( istream & , User &);
 };
 #endif//USER_H_INCLUDED

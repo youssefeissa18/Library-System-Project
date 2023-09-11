@@ -33,7 +33,7 @@ public:
     void rateBook(double );
     double getAverageRating () const;
     bool operator==(const Book&);
-    friend ostream &operator<<(ostream &, const Book &);
+    friend ostream &operator<<(ostream &,const Book &);
     friend istream &operator>>( istream &, Book &);
     ~Book();
 };
