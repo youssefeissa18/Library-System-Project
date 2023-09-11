@@ -11,7 +11,7 @@ private:
     int ID;
     string Category;
     double averageRating;
-    User *Author;
+    User Author;
     bool boolAuthor;
     int numRate;
     double sumRates;
@@ -35,7 +35,6 @@ public:
     bool operator==(const Book&);
     friend ostream &operator<<(ostream &,const Book &);
     friend istream &operator>>( istream &, Book &);
-    ~Book();
 };
 
 

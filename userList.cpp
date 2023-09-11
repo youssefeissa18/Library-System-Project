@@ -36,7 +36,7 @@ User* UserList::searchUser(string userName){
 }
 
 User* UserList::searchUser(int userID){
-     for (int i = 0; i < usersCount; i++)
+    for (int i = 0; i < usersCount; i++)
     {
         if (userID == Users[i].getId())
         {
