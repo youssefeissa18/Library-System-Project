@@ -9,8 +9,6 @@ Book::Book(){
     sumRates = 0.0;
     count++;
     ID = count;
-    // User Author;
-    // boolAuthor = false;
 }
 Book::Book(string Title, string Isbn, string Category){
     this->Title = Title;
@@ -19,10 +17,8 @@ Book::Book(string Title, string Isbn, string Category){
     count++;
     ID = count;
     averageRating = 0.0;
-    // User Author;
     numRate = 0;
     sumRates = 0.0;
-    // boolAuthor = false;
 }
 Book::Book(const Book& book){
     Title = book.Title;
@@ -61,7 +57,6 @@ string Book::getCategory()const {
     return Category;
 }
 void Book::setAuthor(const User & Author){
-    // boolAuthor = true;
     this->Author = Author;
 }
 User Book::getAuthor() const {
@@ -92,6 +87,5 @@ istream &operator>>( istream & input, Book & book) {
     cout << "Enter Book Inforamtion" << endl;
     cout << "Title\t\t" << "Isbn\t\t" << "Category" << endl;
     input >> book.Title >> book.Isbn >> book.Category;
-    // book.averageRating = 0.0;
     return input;
 }
