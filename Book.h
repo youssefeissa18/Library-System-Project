@@ -12,7 +12,7 @@ private:
     string Category;
     double averageRating;
     User Author;
-    bool boolAuthor;
+    //bool boolAuthor;
     int numRate;
     double sumRates;
 public:

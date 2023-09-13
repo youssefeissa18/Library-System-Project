@@ -10,7 +10,7 @@ Book::Book(){
     count++;
     ID = count;
     // User Author;
-    boolAuthor = false;
+    // boolAuthor = false;
 }
 Book::Book(string Title, string Isbn, string Category){
     this->Title = Title;
@@ -22,7 +22,7 @@ Book::Book(string Title, string Isbn, string Category){
     // User Author;
     numRate = 0;
     sumRates = 0.0;
-    boolAuthor = false;
+    // boolAuthor = false;
 }
 Book::Book(const Book& book){
     Title = book.Title;
@@ -33,13 +33,7 @@ Book::Book(const Book& book){
     // Author = book.Author;
     numRate = book.numRate;
     sumRates = book.sumRates;
-    if (boolAuthor)
-    {
-        // this->Author = new User;
-        // boolAuthor = true;
-        // this->Author = book.Author;
-        setAuthor(book.Author);
-    }
+    Author = book.Author;
     
 }
 void Book::setTitle(string Title){
@@ -67,7 +61,7 @@ string Book::getCategory()const {
     return Category;
 }
 void Book::setAuthor(const User & Author){
-    boolAuthor = true;
+    // boolAuthor = true;
     this->Author = Author;
 }
 User Book::getAuthor() const {
@@ -88,7 +82,7 @@ ostream &operator<<(ostream & output, const Book & book) {
     cout << "\n======================== ID : " << book.ID << " Book Info ========================" << endl;
     cout << "\tName" << "\tIsbn" << "\tCategory" << "\tID" << "\tAverage Rate" << endl;
     output << "\t" << book.Title << "\t" << book.Isbn << "\t" << book.Category << "\t" << book.ID << "\t" << book.averageRating << endl;
-    if (book.boolAuthor)
+    if (book.getAuthor().getName() != "")
     {
         cout << "\tAuthor : "<< book.Author;
     }

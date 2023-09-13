@@ -66,15 +66,46 @@ void BookList::deleteBook(int bookID){
 } //delete a book
 
 Book BookList::getTheHighestRatedBook(){
-
+    double maxRate = -10;
+    int index = 0;
+    for (int i = 0; i < booksCount; i++)
+    {
+        if (Books[i].getAverageRating() > maxRate)
+        {
+            maxRate = Books[i].getAverageRating();
+            index = i;
+        }
+        
+    }
+    return Books[index];    
 }
 
-void BookList::getBooksForUser(const User & book){
-
+void BookList::getBooksForUser(const User & user){
+    bool found = false;
+    for (int i = 0; i < booksCount; i++)
+    {
+        if (Books[i].getAuthor() == user)
+        {
+            found = true;
+            cout << Books[i];
+        }
+    }
+    if (!found)
+    {
+        cout << "This Author Don't have any Book" << endl;
+    }
+    
+    
 }// get all books of this author
 
-Book& BookList::operator[] (int ){
-
+Book& BookList::operator[] (int Postion){
+    if (Postion < 0 || Postion > booksCount)
+    {
+        cout << "Out Of Range" << endl;
+        exit(0);
+    }
+    return Books[Postion];
+    
 }
 
 ostream&operator<<(ostream & output,const BookList & bookList){
